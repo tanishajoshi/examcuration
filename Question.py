@@ -1,4 +1,4 @@
-class question:
+class Question:
 	'Class to define a question in database'
 	def __init__(self, ques):
 		self.ques = ques
