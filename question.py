@@ -5,10 +5,10 @@ class Question:
     def __init__(self, ques):
         self.ques = ques
 
-    '''Function to edit and replace a question.'''
+    '''Edit and replace a question.'''
     def edit(self, new_ques):
         self.ques = new_ques
 
-    '''Function to delete a question.'''
+    '''Delete a question.'''
     def delete(self):
         self.ques.remove()
