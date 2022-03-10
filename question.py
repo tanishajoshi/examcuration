@@ -12,3 +12,7 @@ class Question:
     '''Delete a question.'''
     def delete(self):
         self.ques.remove()
+        
+    '''Return the string of the question.'''
+    def getQuestion(self):
+	    return self.ques
