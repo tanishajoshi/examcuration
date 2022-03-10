@@ -14,5 +14,5 @@ class Question:
         self.ques.remove()
         
     '''Return the string of the question.'''
-    def getQuestion(self):
-	    return self.ques
+    def get_question(self):
+        return self.ques
