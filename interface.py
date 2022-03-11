@@ -1,3 +1,3 @@
 import csvreader
 
-csvreader.writeToFile()
+csvreader.write_file()

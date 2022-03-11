@@ -1,12 +1,12 @@
 import csv
 from question import Question
 
-'''Read and output a set of questions from the CSV file'''
-def readFromFile():
+def read_file():
+    '''Read and output a set of questions from the CSV file'''
     print("Hello")
 
-'''Write a question to a CSV file'''
-def writeToFile():
+def write_file():
+    '''Write a question to a CSV file'''
     cont = True
     while cont:
         ##Get input for question and answer
@@ -19,23 +19,22 @@ def writeToFile():
         ##Encapsulate in question class
         quest = Question(q_input, a_input)
 
-
         ##Write question class object to CSV
-        # name of csv file 
+        ##name of csv file
         filename = "Questions.csv"
 
         fields = ['Question', 'Answer']
         rows = [[quest.get_question(), quest.get_answer()]]
         
-        # writing to csv file 
+        ##writing to csv file
         with open(filename, 'w') as csvfile: 
-            # creating a csv writer object
+            ##creating a csv writer object
             csvwriter = csv.writer(csvfile)
                 
-            # writing the fields
+            ##writing the fields
             csvwriter.writerow(fields)
                 
-            # writing the data rows
+            ##writing the data rows
             csvwriter.writerows(rows)
 
         ##Ask user whether they want to add another question or not
