@@ -8,7 +8,7 @@ def readFromFile():
 '''Write a question to a CSV file'''
 def writeToFile():
     cont = True
-    while cont: 
+    while cont:
         ##Get input for question and answer
         print("Please enter a question.")
         q_input = input()
@@ -24,18 +24,18 @@ def writeToFile():
         # name of csv file 
         filename = "Questions.csv"
 
-        fields = ['Question', 'Answer'] 
+        fields = ['Question', 'Answer']
         rows = [[quest.get_question(), quest.get_answer()]]
         
         # writing to csv file 
         with open(filename, 'w') as csvfile: 
-            # creating a csv writer object 
-            csvwriter = csv.writer(csvfile) 
+            # creating a csv writer object
+            csvwriter = csv.writer(csvfile)
                 
-            # writing the fields 
-            csvwriter.writerow(fields) 
+            # writing the fields
+            csvwriter.writerow(fields)
                 
-            # writing the data rows 
+            # writing the data rows
             csvwriter.writerows(rows)
 
         ##Ask user whether they want to add another question or not
