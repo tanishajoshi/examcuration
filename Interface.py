@@ -1,3 +1,3 @@
 import CSVReader
 
-CSVReader.writeToFile();
+CSVReader.writeToFile()
