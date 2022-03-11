@@ -1,3 +1,0 @@
-import CSVReader
-
-CSVReader.writeToFile()
