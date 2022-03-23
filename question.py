@@ -1,6 +1,6 @@
-'''Class to define a question.'''
+'''Module for question class'''
 class Question:
-
+    '''Class to define a question.'''
     def __init__(self, ques, ans):
         '''Initialization of question class.'''
         self.ques = ques
@@ -14,11 +14,11 @@ class Question:
     def delete(self):
         '''Delete a question.'''
         self.ques.remove()
-        
+
     def get_question(self):
         '''Return the string of the question.'''
         return self.ques
-    
+
     def get_answer(self):
         '''Return the string of the answer.'''
         return self.ans
