@@ -41,6 +41,6 @@ def write_file():
         ##Ask user whether they want to add another question or not
         print("Continue? y/n")
         c_input = input()
-        if (c_input != 'y' and c_input != 'Y'):
+        if c_input not in ('y', 'Y'):
             print("Exiting!")
             cont = False
