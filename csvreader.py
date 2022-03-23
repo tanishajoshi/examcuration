@@ -1,3 +1,4 @@
+'''Module for reading and writing to a CSV file'''
 import csv
 from question import Question
 
@@ -25,15 +26,15 @@ def write_file():
 
         fields = ['Question', 'Answer']
         rows = [[quest.get_question(), quest.get_answer()]]
-        
+
         ##writing to csv file
-        with open(filename, 'w') as csvfile: 
+        with open(filename, 'w', encoding='UTF-8') as csvfile:
             ##creating a csv writer object
             csvwriter = csv.writer(csvfile)
-                
+
             ##writing the fields
             csvwriter.writerow(fields)
-                
+
             ##writing the data rows
             csvwriter.writerows(rows)
 
