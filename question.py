@@ -1,5 +1,5 @@
 class Question:
-'''Class to define a question.'''
+    '''Class to define a question.'''
 
     def __init__(self, ques, ans):
         '''Initialization of question class.'''
