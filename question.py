@@ -1,3 +1,4 @@
+'''Question class for database to use.'''
 class Question:
     '''Class to define a question.'''
 
