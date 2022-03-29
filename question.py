@@ -7,7 +7,7 @@ class Question:
         self.ans = ans
 
     def edit(self, new_ques, new_ans):
-        '''Edit and replace a question.'''
+        '''Edit and replace old question with a new question.'''
         self.ques = new_ques
         self.ans = new_ans
 
