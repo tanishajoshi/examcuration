@@ -1,7 +1,10 @@
+# disabling:
+# E0401: Unable to import
+# pylint: disable=E0401
 """Controller module"""
 from sqlite3 import Error
 import sqlite3
-from sem_project.model.question import QConstants
+from model.question import QConstants
 
 def create_table(conn, create_table_sql):
     '''Create table in QADB'''

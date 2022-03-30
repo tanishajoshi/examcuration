@@ -1,5 +1,7 @@
 """This is the question class"""
-
+# disabling:
+# R0903: Too few public methods
+# pylint: disable=R0903
 class QConstants:
     '''QConstants Class'''
     MYDB = "qadb"
