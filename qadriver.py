@@ -1,3 +1,4 @@
+"""This is the main."""
 from view.qaview import handle_view
 from controller.qacontroller import setup
 

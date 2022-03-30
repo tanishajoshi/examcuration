@@ -1,45 +1,30 @@
-'''Class to define a question.'''
-
-"""
-CREATE TABLE `question` (
-  `questionId` int NOT NULL AUTO_INCREMENT,
-  `question` varchar(1024) NOT NULL,
-  `questionTypeId` int NOT NULL,
-  `createDate` datetime NOT NULL,
-  `updateDate` datetime NOT NULL,
-  PRIMARY KEY (`questionId`),
-  KEY `questionTypeId_idx` (`questionTypeId`),
-  CONSTRAINT `questionTypeId` FOREIGN KEY (`questionTypeId`) REFERENCES `question_type` (`questionTypeId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-"""
-
-
+"""This is the question class"""
 class QConstants:
-    '''Class QConstants. ''' 
+    '''QConstants Class'''
     MYDB = "qadb"
-    FREE_RESPONSE = 1
-    MULTIPLE_CHOICE = 2
-    BOOLEAN_CHOICE = 3
-
+    #FREE_RESPONSE = 1
+    #MULTIPLE_CHOICE = 2
+    BOOLEAN_CHOICE = 3 #Default question type for now
 
 class Question:
-    def __init__(self, question, questionTypeId):
+    def __init__(self, question, question_type_id):
         '''Initialization of question class.'''
-        self.questionId = None
+        self.question_id = None
         self.question = question
-        self.questionTypeId = questionTypeId
+        self.question_type_id = question_type_id
 
     def get_question_id(self):
         '''Return question id'''
-        return self.questionId
+        return self.question_id
         
     def get_question(self):
         '''Return the question.'''
         return self.question
     
     def get_question_type_id(self):
-        return self.questionTypeId
+        '''Return question type id'''
+        return self.question_type_id
     
-    def set_question_id(self, questionId):
+    def set_question_id(self, question_id):
         '''Set question id'''
-        self.questionId = questionId
+        self.question_id = question_id

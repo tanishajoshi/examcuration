@@ -1,23 +1,27 @@
-import sqlite3
+"""Controller module"""
 from sqlite3 import Error
+import sqlite3
 from model.question import Question, QConstants
 
 def create_table(conn, create_table_sql):
+    '''Create table in QADB'''
     try:
         c = conn.cursor()
         c.execute(create_table_sql)
-    except Error as e:
-        print(e)
+    except Error as error:
+        print(error)
 
 def create_connection(db_file):
+    '''Create connection to Sqlite'''
     try:
         conn = sqlite3.connect(db_file)
         print(sqlite3.version)
-    except Error as e:
-        print(e)
+    except Error as error:
+        print(error)
     return conn
 
 def call_create_table(db_file):
+    '''Makes call to create table '''
     create_question_table = """ CREATE TABLE IF NOT EXISTS question (
         questionId integer PRIMARY KEY AUTOINCREMENT,
         question text NOT NULL,
@@ -32,9 +36,11 @@ def call_create_table(db_file):
         print("Error could not create table")
 
 def setup():
+    '''DB Set up'''
     call_create_table(QConstants.MYDB)
 
 def insert_question(question):
+    '''Function to insert question in DB'''
     sql = ''' INSERT INTO question(question, questionTypeId) VALUES(?,?) '''
     conn = create_connection(QConstants.MYDB)
     cur = conn.cursor()
@@ -42,14 +48,16 @@ def insert_question(question):
     conn.commit()
     return cur.lastrowid
 
-def remove_question(questionId):
+def remove_question(question_id):
+    '''Function to remove question in DB'''
     sql = ''' DELETE FROM question WHERE questionId = ?'''
     conn = create_connection(QConstants.MYDB)
     cur = conn.cursor()
-    cur.execute(sql, (questionId,))
+    cur.execute(sql, (question_id,))
     conn.commit()
 
 def get_questions():
+    '''Function to show all qs in DB'''
     conn = create_connection(QConstants.MYDB)
     cur = conn.cursor()
     cur.execute("SELECT * FROM question")
@@ -58,4 +66,3 @@ def get_questions():
 
     for row in rows:
         print(row)
-

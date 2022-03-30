@@ -1,22 +1,26 @@
-from model.question import Question, QConstants
+'''View module command line'''
 
+from model.question import Question, QConstants
 from controller.qacontroller import insert_question, remove_question, get_questions
 
 def handle_add():
+    '''Adding a question from command line'''
     print("Enter question: ")
     qinput = input()
     question = Question(qinput, QConstants.BOOLEAN_CHOICE)
-    questionId = insert_question(question)
-    question.set_question_id(questionId)
+    question_id = insert_question(question)
+    question.set_question_id(question_id)
     print("Question successfully added!")
 
 def handle_remove():
+    '''Removing a q from command line'''
     print("Enter questionId: ")
     qinput = input()
     remove_question(int(qinput))
     print(f"Question {qinput} successfully removed!")
 
 def handle_view():
+    '''handles view on command line'''
     print("Welcome to the exam generator!\n")
     while True:
         print("Select a choice: AddQuestion(A), RemoveQuestion(R), ShowAll(S), Quit(Q)\n")
