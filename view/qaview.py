@@ -1,5 +1,5 @@
 '''View module command line'''
-
+import sys
 from model.question import Question, QConstants
 from controller.qacontroller import insert_question, remove_question, get_questions
 
@@ -32,6 +32,6 @@ def handle_view():
         elif choice == "S":
             get_questions()
         elif choice == "Q":
-            exit("Thank you your data has been saved!")
+            sys.exit("Thank you your data has been saved!")
         else:
             print("Invalid Choice!\n")

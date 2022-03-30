@@ -1,13 +1,13 @@
 """Controller module"""
 from sqlite3 import Error
 import sqlite3
-from model.question import Question, QConstants
+from sem_project.model.question import QConstants
 
 def create_table(conn, create_table_sql):
     '''Create table in QADB'''
     try:
-        c = conn.cursor()
-        c.execute(create_table_sql)
+        conn_cursor = conn.cursor()
+        conn_cursor.execute(create_table_sql)
     except Error as error:
         print(error)
 
