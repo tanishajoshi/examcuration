@@ -5,4 +5,3 @@ from controller.qacontroller import setup
 if __name__ == "__main__":
     setup()
     handle_view()
-
