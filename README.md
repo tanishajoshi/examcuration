@@ -1,4 +1,9 @@
-# sem_project
+# Exam Generator Software
 
-'''To run this code, simply run the driver with the
-command 'python3 qadriver.py'''
+## This software assists professors in exam curation, generation, revision, and retrieval of previous exams.
+
+###Currently works for command line usage:
+```
+python3 qadriver.py
+
+```
