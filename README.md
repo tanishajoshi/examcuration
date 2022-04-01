@@ -1,4 +1,9 @@
-# sem_project
+# Exam Generator Software
 
-To run this code, simply run the database wrapper with the
-command 'python3 db_wrapper.py'
+## This software assists professors in exam curation, generation, revision, and retrieval of previous exams.
+
+Currently works for command line usage:
+```
+python3 qadriver.py
+
+```
