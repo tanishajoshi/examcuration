@@ -16,8 +16,7 @@ class Question:
         self.question_id = None
         self.question = question
         self.question_type_id = question_type_id
-        #TODO: Ensure question answer format is appropriate for question type
-        self.question_answer = question_answer # Default to NONE if no right answer or none provided
+        self.question_answer = question_answer # Default to 0 if no right answer or none provided
 
     def get_question_id(self):
         '''Return question id'''
@@ -36,7 +35,9 @@ class Question:
         self.question_id = question_id
 
     def get_answer(self):
+        '''Return the answer.'''
         return self.question_answer
-    
+
     def update_answer(self, new_answer):
+        '''Update the answer.'''
         self.question_answer = new_answer

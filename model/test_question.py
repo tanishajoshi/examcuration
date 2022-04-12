@@ -1,13 +1,13 @@
-'''Module for testing question.py. Must be in same directory as question.py to avoid import errors.'''
+'''Module for testing question.py.'''
 from model.question import Question, QConstants
 
-def test_generateQuestion():
+def test_generate_question():
     '''Tests generating a question'''
     sample_q = Question("What is my name?", 2, "Johhny Bravo")
 
-    assert (isinstance(sample_q, Question)) == True
+    assert (isinstance(sample_q, Question))
 
-def test_updateAnswer():
+def test_update_answer():
     '''Tests updating an answer to an already generated question'''
     sample_q = Question("What is my name?", QConstants.FREE_RESPONSE, "Johhny Bravo")
     sample_q.update_answer("Courage the Cowardly Dog")
