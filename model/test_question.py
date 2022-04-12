@@ -5,7 +5,7 @@ def test_generate_question():
     '''Tests generating a question'''
     sample_q = Question("What is my name?", 2, "Johhny Bravo")
 
-    assert (isinstance(sample_q, Question))
+    assert isinstance(sample_q, Question)
 
 def test_update_answer():
     '''Tests updating an answer to an already generated question'''
