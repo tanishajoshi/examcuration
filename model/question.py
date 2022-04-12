@@ -6,8 +6,8 @@ class QConstants:
     '''QConstants Class'''
     MYDB = "qadb"
     FREE_RESPONSE = 1
-    #MULTIPLE_CHOICE = 2
-    #BOOLEAN_CHOICE = 3 #Default question type for now
+    MULTIPLE_CHOICE = 2
+    BOOLEAN_CHOICE = 3 #Default question type for now
 
 class Question:
     '''Question Class'''
