@@ -1,5 +1,5 @@
 """ Sqlite specific module for writing. """
-
+#pylint:disable=C0206
 import sqlite3
 
 class SqliteWriter():

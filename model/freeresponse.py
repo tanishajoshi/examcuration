@@ -34,3 +34,4 @@ class FreeResponse:
         """Get a answer."""
 
         return self.answer
+        

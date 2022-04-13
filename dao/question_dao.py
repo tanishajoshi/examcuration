@@ -25,7 +25,7 @@ class QuestionDao:
         if self.reader is None:
             raise ValueError("reader is not initialized")
 
-        qlist = self.reader.execute(question_id=question_id)
+        qlist = self.reader.execute("question", questionId=question_id)
         return qlist[0]
 
     def get_questions(self) -> list:
