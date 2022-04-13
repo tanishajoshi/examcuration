@@ -1,4 +1,6 @@
 ''' File containing graphical user interface. '''
+# disabling:
+# pylint: disable=E0001
 import tkinter.messagebox
 from tkinter import *
 from model.question import Question, QConstants
