@@ -20,8 +20,8 @@ def clear_questions(controller):
     for question in reversed(questions):
         question_id = question[0]
         print(question_id)
-        remove_question(question_id)
-    questions = get_questions()
+        controller.remove_question(question_id)
+    questions = controller.get_questions()
     print("Printing DB")
     print(questions)
 
@@ -46,13 +46,13 @@ def test_add_question():
 
     questions = test_controller.get_questions()
     check_q = questions[len(questions)-1]
-    assert check_q[0] == sample_q.get_question_id()
-    assert check_q[1] == sample_q.get_question()
+    assert check_q.get_question_id() == sample_q.get_question_id()
+    assert check_q.get_question() == sample_q.get_question()
 
 def test_remove_question():
     '''Test for verifying that questions can be removed from the database.'''
-    clear_questions()
     test_controller = create_controller()
+    #clear_questions(test_controller)
     #Add a first question
     sample_q = Question("What is my name?", 1)
     question_id = test_controller.insert_question(sample_q)
@@ -62,16 +62,15 @@ def test_remove_question():
     question_id2 = test_controller.insert_question(sample_q2)
     sample_q2.set_question_id(question_id2)
     questions = test_controller.get_questions()
-    test_controller.remove_question(sample_q.get_question_id())
+    test_controller.remove_question(sample_q2.get_question_id()) #
 
     questions = test_controller.get_questions()
-    check_q = questions[0]
-    assert check_q[0] == sample_q2.get_question_id()
-    assert check_q[1] == sample_q2.get_question()
+    check_q = questions[len(questions)-1] #Get the last question in the frame
+    assert check_q.get_question_id() == sample_q.get_question_id()
+    assert check_q.get_question() == sample_q.get_question()
 
 def test_get_question():
     '''Test for verifying question getter.'''
-    clear_questions()
     test_controller = create_controller()
     sample_q = Question("What is my name?", 1)
     sample_q2 = Question("What is my address?", 1)
@@ -80,7 +79,7 @@ def test_get_question():
     question_id = test_controller.insert_question(sample_q2)
     sample_q2.set_question_id(question_id)
 
-    assert test_controller.get_question(question_id) == (question_id, 'What is my address?', 3)
+    assert test_controller.get_question(question_id) == (question_id, 'What is my address?', 1)
 
 def test_update_question():
     '''Test for verifying that updating a question updates it.'''
