@@ -35,3 +35,4 @@ class QuestionType:
         """Get a question type."""
 
         return self.question_type
+        

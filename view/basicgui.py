@@ -5,8 +5,9 @@
 # pylint: disable=W0401
 # pylint: disable=R0915
 # pylint: disable=C0103
+# pylint: disable=W0614
 import tkinter.messagebox
-from tkinter import * 
+from tkinter import *
 from model.question import Question
 from controller.qcontroller import QController
 from setup import setup
@@ -29,7 +30,7 @@ def start():
     #questionEntry = ui.Entry(root)
 
 
-    ui.geometry('1000x400') 
+    ui.geometry('1000x400')
 
     ''' Functions of add, edit, and remove buttons. '''
     def add():
@@ -52,7 +53,7 @@ def start():
     def delete():
         if len(question_id_entry.get()) == 0:
             tkinter.messagebox.showinfo('Enter ID message', 'Please enter a question ID')
-        else: 
+        else:
             qcontroller.remove_question(question_id_entry.get())
             tkinter.messagebox.showinfo('delete message', 'Your question has been deleted!')
 

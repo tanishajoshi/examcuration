@@ -2,7 +2,7 @@
 In order to support another database, you can specify
 a different dbtype in the config file.
 """
-
+#pylint:disable=W1514
 import sqlite3
 from configparser import ConfigParser
 from sqlite3 import Error
