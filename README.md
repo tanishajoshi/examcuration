@@ -33,3 +33,23 @@ python3 qadriver.py
     * Show the adding of questions and answers then showing them in database
     * Show the removing of questions and answers from database
     * Show the ability to edit questions and answers
+
+# Sprint 3 Planning
+
+## Goals
+
+1. Display all questions
+    * Search by tag
+2. Tags for questions
+    * Type of question, language, class code (eg CSCI3300)
+3. Questions
+    * create date, update data, add tags
+4. Improve user interface using 8 golden rules
+    * Add search and filter features
+5. Tests for all additional functionality
+6. Export questions
+    * Format? (txt file)
+
+## Demo video
+
+We will show that you can search by tag, the question information in our database, and show exporting questions
