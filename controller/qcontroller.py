@@ -25,18 +25,37 @@ class QController:
         """ Get a specific question. """
 
         row = self.dao.get_question(question_id)
-        question = Question(row[1], row[2])
+        question = Question(row[1], row[2], row[3], row[4], row[5], "")
         question.set_question_id(row[0])
+        question.set_create_date(row[6])
+        question.set_update_date(row[7])
+
         return question
 
-    def get_questions(self):
+    def get_all_questions(self):
         """ Get all the questions. """
 
-        rows = self.dao.get_questions()
+        rows = self.dao.get_all_questions()
         questions = []
         for row in rows:
-            question = Question(row[1], row[2])
+            question = Question(row[1], row[2], row[3], row[4], row[5], row[6])
             question.set_question_id(row[0])
+            question.set_create_date(row[7])
+            question.set_update_date(row[8])
+            questions.append(question)
+
+        return questions
+
+    def get_questions(self, tags, ops):
+        """ Get all the questions that match the tags and op. """
+
+        rows = self.dao.get_questions(tags, ops)
+        questions = []
+        for row in rows:
+            question = Question(row[1], row[2], row[3], row[4], row[5], row[6])
+            question.set_question_id(row[0])
+            question.set_create_date(row[7])
+            question.set_update_date(row[8])
             questions.append(question)
 
         return questions

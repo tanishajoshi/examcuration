@@ -30,8 +30,17 @@ class FreeResponse:
 
         return self.question_id
 
+    def set_question_id(self, question_id):
+        """Set question id."""
+
+        self.question_id = question_id
+
     def get_answer(self):
         """Get a answer."""
 
         return self.answer
-        
+
+    def set_answer(self, answer):
+        """Set the answer."""
+
+        self.answer = answer

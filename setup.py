@@ -24,7 +24,8 @@ def execute_query(db_file, sql):
             cur.execute(sql)
             conn.commit()
     except Error as conn_error:
-        print(conn_error)
+        #print(conn_error)
+        raise
 
 def setup():
     """call the setup"""
@@ -45,7 +46,10 @@ def setup():
     with open("pop_data.json") as some_tab:
         tlist = json.loads(some_tab.read())
         for entry in tlist:
-            execute_query(dbinfo["dbname"], entry)
+            try:
+                execute_query(dbinfo["dbname"], entry)
+            except:
+                print("Data already exists, not populating.")
 
 if __name__ == "__main__":
     setup()

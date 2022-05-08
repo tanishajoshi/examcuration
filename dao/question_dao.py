@@ -1,5 +1,7 @@
 """ Data Access Object for Question. """
 
+from model.freeresponse import FreeResponse
+
 class QuestionDao:
     """ This is a DAO for question. """
 
@@ -25,16 +27,49 @@ class QuestionDao:
         if self.reader is None:
             raise ValueError("reader is not initialized")
 
-        qlist = self.reader.execute("question", questionId=question_id)
+        qlist = self.reader.execute_simple("question", questionId=question_id)
+
         return qlist[0]
 
-    def get_questions(self) -> list:
+    def get_all_questions(self) -> list:
         """ Execute a query to get all questions. """
 
         if self.reader is None:
             raise ValueError("reader is not initialized")
 
-        return self.reader.execute("question")
+        tags = {}
+        tags['question_topic'] = (None, 0)
+        tags['language'] = (None, 0)
+        tags['class_code'] = (None, 0)
+        ops = 'AND'
+        return self.reader.execute("question, answer_free",
+                                   "question.questionId, question,\
+                                   questionTypeId, questionTopicTag,\
+                                   languageTag, classCodeTag, answer,\
+                                   createDate, updateDate",
+                                   ops,
+                                   "questionId",\
+                                   questionTopicTag=tags['question_topic'],
+                                   languageTag=tags['language'],
+                                   classCodeTag=tags['class_code'])
+
+    def get_questions(self, tags, ops) -> list:
+        """ Execute a search query to get questions by tags. """
+
+        if self.reader is None:
+            raise ValueError("reader is not initialized")
+
+        return self.reader.execute("question, answer_free",
+                                   "question.questionId,\
+                                   question, questionTypeId,\
+                                   questionTopicTag, languageTag,\
+                                   classCodeTag, answer,\
+                                   createDate, updateDate",
+                                   ops,
+                                   "questionId",
+                                   questionTopicTag=tags['question_topic'],
+                                   languageTag=tags['language'],
+                                   classCodeTag=tags['class_code'])
 
     def get_freeresponses(self) -> list:
         """ Execute a query to get all freeresponses. """
@@ -58,18 +93,27 @@ class QuestionDao:
         if self.writer is None:
             raise ValueError("writer is not initialized")
 
+        # These need to be part of a transaction
         inserted_id = self.writer.insert("question",
                                          question=question.get_question(),
-                                         questionTypeId=question.get_question_type_id())
+                                         questionTypeId=question.get_question_type_id(),
+                                         questionTopicTag=question.get_question_topic_tag(),
+                                         languageTag=question.get_language_tag(),
+                                         classCodeTag=question.get_class_code_tag())
+
+        answer = FreeResponse(inserted_id, question.get_answer())
+        self.insert_freeresponse(answer)
+
         return inserted_id
 
     def remove_question(self, question_id: int):
-        """ Execute a delete query. """
+        """ Remove the question and the corresponding answer. """
 
         if self.writer is None:
             raise ValueError("writer is not initialized")
 
         self.writer.delete("question", questionId=question_id)
+        self.writer.delete("answer_free", questionId=question_id)
 
     def insert_freeresponse(self, free_response):
         """ Execute an insert query. """
