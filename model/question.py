@@ -1,5 +1,6 @@
 """This is the question model."""
-
+#pylint:disable=R0902
+#pylint:disable=R0913
 class Question:
     """
     A class to represent a Question.

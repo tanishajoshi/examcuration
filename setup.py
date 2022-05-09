@@ -3,6 +3,10 @@ In order to support another database, you can specify
 a different dbtype in the config file.
 """
 #pylint:disable=W1514
+#pylint:disable=W0706
+#pylint:disable=W0702
+#pylint:disable=C0209
+
 import sqlite3
 from configparser import ConfigParser
 from sqlite3 import Error
@@ -24,8 +28,7 @@ def execute_query(db_file, sql):
             cur.execute(sql)
             conn.commit()
     except Error as conn_error:
-        #print(conn_error)
-        raise
+        print("An exception occurred: {}".format(conn_error))
 
 def setup():
     """call the setup"""

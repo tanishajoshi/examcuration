@@ -8,3 +8,4 @@ def test_question_type():
     assert sample_qtype.get_question_type_id() == 1
     assert isinstance(sample_qtype, QuestionType)
     assert sample_qtype.get_question_type() == "FREE_RESPONSE"
+    
