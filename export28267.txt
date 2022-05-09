@@ -1,0 +1,9 @@
+question_id: 1
+question: What is your name?
+question_type_id: 1
+question_topic_tag: Name
+language_tag: 
+class_code_tag: 
+create_date: 2022-05-09 11:18:50
+update_date: 2022-05-09 11:18:50
+answer: Tanisha
