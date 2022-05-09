@@ -6,6 +6,7 @@
 # pylint: disable=R0915
 # pylint: disable=C0103
 # pylint: disable=W0614
+# pylint: disable=C0303
 import tkinter.messagebox
 from tkinter import *
 from model.question import Question
@@ -61,7 +62,7 @@ def start():
               anchor='w')
         question_entry = Entry(add_question_window, width=80)
         question_entry.place(relx = 0.56, rely = 0.1, anchor='center')
-        
+
         ''' Text bar to enter answers. '''
         Label(add_question_window,
               text='Answer:',
@@ -69,15 +70,15 @@ def start():
               rely = 0.3,
               anchor='w')
         answer_entry = Entry(add_question_window, width=82)
-        answer_entry.place(relx = 0.55, rely = 0.3, anchor='center')   
-        
+        answer_entry.place(relx = 0.55, rely = 0.3, anchor='center')
+
         ''' Text bar to enter tags. '''
         Label(add_question_window, text='Tags:',
         font=("Helvetica", 15)).place(relx = 0,
         rely = 0.5,
         anchor='w')
         tag_entry = Entry(add_question_window, width=86)
-        tag_entry.place(relx = 0.53, rely = 0.5, anchor='center')          
+        tag_entry.place(relx = 0.53, rely = 0.5, anchor='center')
 
         ''' Add question, edit question, view questions and delete question buttons. '''
         add_button=Button(add_question_window,text="Add Question",
@@ -89,18 +90,22 @@ def start():
 
 
     def edit():
-        ''' New Window created when the edit button is clicked. '''		
+        ''' New Window created when the edit button is clicked. '''
         edit_question_window = Tk()
         edit_question_window.title("Edit Question")
-        edit_question_window.geometry('600x300')	
-        def edit_question():	
+        edit_question_window.geometry('600x300')
+        def edit_question():
             if len(question_id_entry.get()) == 0:
                 tkinter.messagebox.showinfo('Enter ID message', 'Please enter a question ID')
             else:
                 tkinter.messagebox.showinfo('edit message', 'Your question has been changed!')
 
         ''' Text bar to find questions. '''
-        Label(edit_question_window, text='Question ID:', font=("Helvetica", 15)).place(relx = 0, rely = 0.1, anchor='w')
+        Label(edit_question_window,
+        text='Question ID:',
+        font=("Helvetica", 15)).place(relx = 0,
+        rely = 0.1,
+        anchor='w')
         question_id_entry = Entry(edit_question_window, width=75)
         question_id_entry.place(relx = 0.58, rely = 0.1, anchor='center')
 
@@ -118,7 +123,7 @@ def start():
         rely = 0.5,
         anchor='w')
         answer_entry = Entry(edit_question_window, width=82)
-        answer_entry.place(relx = 0.55, rely = 0.5, anchor='center')         
+        answer_entry.place(relx = 0.55, rely = 0.5, anchor='center')
 
         ''' Change button. '''
         change_button=Button(edit_question_window,text="Change Question/Answer",
@@ -127,13 +132,13 @@ def start():
         height=5,
         command=edit_question,
         bg='white')
-        change_button.place(x=225,y=200)        
+        change_button.place(x=225,y=200)
 
     def delete():
         ''' New window created when the delete button is clicked. '''
         delete_question_window = Tk()
         delete_question_window.title("Delete Question")
-        delete_question_window.geometry('600x200')		
+        delete_question_window.geometry('600x200')
 
         '''Delete function. '''
         def delete_question():
@@ -160,11 +165,11 @@ def start():
         height=5,
         command=delete_question,
         bg='white')
-        delete_button.place(x=225,y=75)         
+        delete_button.place(x=225,y=75)
 
-    ''' View all questions. '''    
+    ''' View all questions. '''
     def view():
-        tkinter.messagebox.showinfo('Show questions', qcontroller.get_questions()) 
+        tkinter.messagebox.showinfo('Show questions', qcontroller.get_questions())
 
     ''' Add question, edit question, view questions and delete question buttons. '''
     add_button=Button(ui,
