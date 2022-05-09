@@ -1,5 +1,7 @@
 """This is the View"""
 #pylint: disable=E0401
+#pylint:disable=E1120
+#pylint:disable=R0801
 import sys
 from configparser import ConfigParser
 

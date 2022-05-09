@@ -3,9 +3,9 @@
 #pylint:disable=E1120
 #pylint:disable=W0105
 from configparser import ConfigParser
+from qcontroller import QController
 from model.question import Question
 from setup import setup
-from qcontroller import QController
 
 def create_controller():
     '''Creates a controller for the tests.'''

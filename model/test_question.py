@@ -1,6 +1,7 @@
 '''Module for testing question.py.'''
 #pylint:disable=E0401
 #pylint:disable=E0602
+#pylint:disable=E1120
 from model.question import Question
 from model.freeresponse import FreeResponse
 def test_generate_question():

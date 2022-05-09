@@ -1,0 +1,59 @@
+question_id: 3
+question: What is your name
+question_type_id: 1
+question_topic_tag: name
+language_tag: 
+class_code_tag: 
+create_date: 2022-05-09 11:56:13
+update_date: 2022-05-09 11:56:13
+answer: John
+
+question_id: 4
+question: What is your name
+question_type_id: 1
+question_topic_tag: name
+language_tag: 
+class_code_tag: 
+create_date: 2022-05-09 11:56:29
+update_date: 2022-05-09 11:56:29
+answer: John
+
+question_id: 5
+question: What is your name
+question_type_id: 1
+question_topic_tag: name
+language_tag: 
+class_code_tag: 
+create_date: 2022-05-09 11:56:32
+update_date: 2022-05-09 11:56:32
+answer: John
+
+question_id: 6
+question: What is your name?
+question_type_id: 1
+question_topic_tag: name
+language_tag: 
+class_code_tag: 
+create_date: 2022-05-09 12:19:21
+update_date: 2022-05-09 12:19:21
+answer: Tanisha
+
+question_id: 7
+question: Where are you from?
+question_type_id: 1
+question_topic_tag: place
+language_tag: 
+class_code_tag: 
+create_date: 2022-05-09 12:19:51
+update_date: 2022-05-09 12:19:51
+answer: Missouri
+
+question_id: 8
+question: What is your name?
+question_type_id: 1
+question_topic_tag: name
+language_tag: 
+class_code_tag: 
+create_date: 2022-05-09 12:39:14
+update_date: 2022-05-09 12:39:14
+answer: Tanisha
