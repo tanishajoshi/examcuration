@@ -8,6 +8,7 @@
 # pylint: disable=W0614
 # pylint: disable=C0303
 import tkinter.messagebox
+import os
 from tkinter import *
 from model.question import Question
 from controller.qcontroller import QController
@@ -21,7 +22,6 @@ from setup import setup
 def start():
     """start method"""
 
-    print("CAME HERE")
     ''' Create data table for questions and answers to be stored. '''
     setup()
     qcontroller = QController("sqlite")
@@ -87,7 +87,6 @@ def start():
         command=add_question,
         bg='white')
         add_button.place(x=250,y=125)
-
 
     def edit():
         ''' New Window created when the edit button is clicked. '''
@@ -168,8 +167,17 @@ def start():
         delete_button.place(x=225,y=75)
 
     ''' View all questions. '''
+
     def view():
-        tkinter.messagebox.showinfo('Show questions', qcontroller.get_questions())
+        questions = get_questions()
+        tkinter.messagebox.showinfo('Show questions', questions)
+
+    def export():
+        questions = get_questions()
+        qfile = f"export{os.getpid()}.txt"
+        with open(qfile, "w") as qo:
+            qo.write(questions)
+        print(f"Exported questions to file: {qfile} successfully!")
 
     ''' Add question, edit question, view questions and delete question buttons. '''
     add_button=Button(ui,
