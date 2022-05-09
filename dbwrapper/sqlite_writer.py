@@ -1,5 +1,4 @@
 """ Sqlite specific module for writing. """
-#pylint:disable=C0206
 import sqlite3
 
 class SqliteWriter():
@@ -26,6 +25,8 @@ class SqliteWriter():
         qm_str = ','.join(qmarks)
 
         query = f'INSERT INTO {table} ({cols}) VALUES({qm_str})'
+
+        print(f"insert query = {query} {vals}")
 
         inserted_id = None
 
