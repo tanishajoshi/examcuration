@@ -1,5 +1,6 @@
 """ Sqlite specific module for writing. """
 import sqlite3
+#pylint:disable=C0206
 
 class SqliteWriter():
     """ Writer for inserts and deletes. """

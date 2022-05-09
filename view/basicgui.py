@@ -7,6 +7,7 @@
 # pylint: disable=C0103
 # pylint: disable=W0614
 # pylint: disable=W1514
+# pylint: disable=R0914
 import tkinter.messagebox
 import os
 from tkinter import *

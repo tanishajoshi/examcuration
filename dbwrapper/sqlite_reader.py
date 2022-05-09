@@ -1,6 +1,7 @@
 """ Sqlite specific reader. """
 import sqlite3
-
+#pylint:disable=C0206
+#pylint:disable=W0707
 class SqliteReader():
     """ Module for handling reading from Sqlite. """
 

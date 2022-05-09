@@ -1,5 +1,5 @@
 """ Data Access Object for Question. """
-
+#pylint:disable=E0401
 from model.freeresponse import FreeResponse
 
 class QuestionDao:
