@@ -50,4 +50,4 @@ python3 qdriver.py
 
 ## Demo video
 
-We will show that you can search by tag, the question information in our database, and show exporting questions
+We will show that you can search, the question information in our database, and show exporting questions
